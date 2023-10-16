@@ -1,6 +1,6 @@
 # SRTM Tile 2D-Viewer React 1.0.0
 
-![image](https://github.com/NeuralCortex/Empty_Phrases/blob/main/app.png)
+![image](https://github.com/NeuralCortex/SRTM_Tile_2D_React/blob/main/app.png)
 
 The SRTM Tile 2D viewer is a Web-App besed on React that enables the user to view topographic data</br>
 of the NASA mission STS-99 [Shuttle Radar Topography Mission (SRTM)](https://en.wikipedia.org/wiki/STS-99) in OpenStreetMap.</br>
