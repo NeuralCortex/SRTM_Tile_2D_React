@@ -19,6 +19,17 @@ export class Control extends Component {
     checked: false,
     lon: 0,
     lat: 0,
+    tableheight: 0,
+  };
+
+  componentDidMount(){
+    this.setTableHeight();
+  }
+
+  setTableHeight = () => {
+    let control = document.getElementById("control");
+    let rectControl = control.getBoundingClientRect();
+    this.setState({ tableheight: rectControl.height - 247.94 - 48 - 2*16});
   };
 
   onChangeColor = (value, row) => {
@@ -92,16 +103,16 @@ export class Control extends Component {
         detail: "Duplicate found",
       });
     }
-   
+
     arr.sort(this.compare);
-  
+
     this.props.setColors(arr);
     this.setState({ dlgColorVisible: false });
   };
 
   deleteRow = () => {
     let sel = this.state.selectedRow;
-   
+
     if (sel == null) {
       this.toast.show({
         severity: "error",
@@ -169,6 +180,7 @@ export class Control extends Component {
   };
 
   render() {
+    window.addEventListener("resize", this.setTableHeight);
     const footer = (
       <div>
         <Button label="Add Color" onClick={this.saveColor} />
@@ -190,6 +202,7 @@ export class Control extends Component {
           Control
         </div>
         <div
+          id="control"
           className="w3-white w3-container w3-padding-16"
           style={{ height: "calc(100vh - 157.48px - 31px - 5*16px)" }}
         >
@@ -250,6 +263,8 @@ export class Control extends Component {
             selectionMode="single"
             selection={this.state.selectedRow}
             onSelectionChange={(e) => this.setState({ selectedRow: e.value })}
+            scrollable
+            scrollHeight={this.state.tableheight}
           >
             <Column field="pct" header="Percent" body={this.percentCell} />
             <Column field="colorHex" header="Color" body={this.colorCell} />

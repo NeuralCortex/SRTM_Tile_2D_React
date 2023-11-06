@@ -370,7 +370,7 @@ export class MapView extends Component {
     }
 
     function FinalMap() {
-      const [map, setMap] = useState();
+      const [map, setMap] = useState(null);
 
       const displayMap = useMemo(
         () => (
