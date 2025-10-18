@@ -18,7 +18,7 @@ export class Footer extends Component {
     render() {
         return (
             <footer id="footer" className="w3-container w3-indigo w3-padding w3-tiny">
-                <label>{this.state.year} <FontAwesomeIcon icon="copyright"></FontAwesomeIcon> Copyright Fong Dai Goresmack</label>
+                <label>{this.state.year} <FontAwesomeIcon icon="copyright"></FontAwesomeIcon> Copyright Neural Cortex</label>
             </footer>
         );
     }

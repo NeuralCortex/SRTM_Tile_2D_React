@@ -1,126 +1,86 @@
-# SRTM Tile 2D-Viewer React 1.0.0
+# SRTM Tile 2D Viewer React 1.0.0
 
-![image](https://github.com/NeuralCortex/SRTM_Tile_2D_React/blob/main/app.png)
+![App Screenshot](https://github.com/NeuralCortex/SRTM_Tile_2D_React/blob/main/app.jpg)
 
-The SRTM Tile 2D viewer is a Web-App besed on React that enables the user to view topographic data</br>
-of the NASA mission STS-99 [Shuttle Radar Topography Mission (SRTM)](https://en.wikipedia.org/wiki/STS-99) in OpenStreetMap.</br>
-The web app can load and display both SRTM-3 and SRTM-1 tiles.</br>
+The SRTM Tile 2D Viewer is a web application built with React that enables users to visualize topographic data from NASA's [Shuttle Radar Topography Mission (SRTM)](https://en.wikipedia.org/wiki/STS-99) on OpenStreetMap. The app supports loading and displaying both SRTM-3 and SRTM-1 tiles.
 
-## How the web app works
+## Features
 
-To use the app, you need to execute following steps:
-1. Install Node.js
-2. Go to the project's main directory.
-3. Type `npm install` - Wait for Completion
-4. Type `npm start` for Development-Mode or
-5. Or type `npm run build` for Production-Mode
+- Load and display SRTM-3 and SRTM-1 topographic tiles.
+- Visualize tiles on OpenStreetMap.
+- Display high-resolution height values in the status bar when hovering over a tile.
+- Copy coordinates from Google Maps by pasting (Ctrl+V) into Longitude or Latitude fields.
+- Intuitive and user-friendly interface.
 
-After importing an SRTM tile, the user can view the tile in OpenStreetMap.</br>
-By moving the mousecursor over the imported tile, the user can see the high-res height-values in the status-bar.</br>
-The coordinates of the marker can be taken from Google Maps by placing the cursor in the Longitude or Latitude field by entering the key combination Crtl-V.</br>
-All other functions should be self-explanatory.
+## Installation
 
-## Structure of a file
+To set up the project locally, follow these steps:
 
-The file name typically has the form: "N49E011.hgt".
+1. Install [Node.js](https://nodejs.org).
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/NeuralCortex/SRTM_Tile_2D_React.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd SRTM_Tile_2D_React
+   ```
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+5. Start the development server:
+   ```bash
+   npm start
+   ```
+   Or, build for production:
+   ```bash
+   npm run build
+   ```
 
-### Internal structure
+## Usage
 
-The ".hgt" file contains 16-bit signed integer values, with no header or trailer.
+1. Launch the app using `npm start`.
+2. Import an SRTM tile (e.g., `N49E011.hgt`).
+3. View the tile on OpenStreetMap.
+4. Hover over the tile to see height values in the status bar.
+5. Paste coordinates (Ctrl+V) from Google Maps into the Longitude or Latitude fields for precise navigation.
 
-<pre>
-                 1x1 degree SRTM3 tile
-North X=0,Y=1201 ********************* X=1201,Y=1201</br>
-                 *********************</br>
-                 *********************</br>
-                 *********************</br>
-   South X=0,Y=0 ********************* X=1201,Y=0</br>
+## File Structure
+
+SRTM files typically have names like `N49E011.hgt`.
+
+### Internal Structure
+
+The `.hgt` file contains 16-bit signed integer values, with no header or trailer.
+
+#### 1x1 Degree SRTM-3 Tile
+```
+North X=0,Y=1201 ********************* X=1201,Y=1201
+                 *********************
+                 *********************
+                 *********************
+South X=0,Y=0    ********************* X=1201,Y=0
                  West             East
-</pre>
+```
 
-<pre>
-                 1x1 degree SRTM1 tile
-North X=0,Y=3601 ********************* X=3601,Y=3601</br>
-                 *********************</br>
-                 *********************</br>
-                 *********************</br>
-   South X=0,Y=0 ********************* X=3601,Y=0</br>
+#### 1x1 Degree SRTM-1 Tile
+```
+North X=0,Y=3601 ********************* X=3601,Y=3601
+                 *********************
+                 *********************
+                 *********************
+South X=0,Y=0    ********************* X=3601,Y=0
                  West             East
-</pre>
+```
 
-## Technology used
+## Technologies Used
 
-This web app was created with Create React App.
-
-The following tools were used:
-
+- [Create React App](https://github.com/facebook/create-react-app)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org/)
 - [Google Chrome](https://www.google.com/chrome/)
-
 
 ## Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). For more details, refer to the [Create React App documentation](https://create-react-app.dev/docs/getting-started).
